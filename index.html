@@ -1,0 +1,640 @@
+<title>Suede Buffalo Vending</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#000000;
+  --surface:#1A1410;
+  --surface-2:#221B15;
+  --ink:#F4ECDE;
+  --ink-soft:#B9A996;
+  --ink-faint:#8A7A66;
+  --line:#332821;
+  --copper:#E0913F;
+  --copper-ink:#1B1006;
+  --turq:#3FD8C9;
+  --turq-soft:#173539;
+  --shadow:0 1px 2px rgba(0,0,0,0.4), 0 18px 40px -22px rgba(0,0,0,0.7);
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Work Sans', system-ui, sans-serif;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:0.01em;
+  text-wrap:balance;
+  margin:0;
+  color:var(--ink);
+}
+.mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+a{ color:var(--copper); }
+.wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+
+/* ---------- Top bar ---------- */
+.topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 24px; max-width:1040px; margin:0 auto;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand .mark{
+  width:34px; height:34px; background:var(--copper); flex:none;
+  clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.brand .name{ font-family:'Big Shoulders Display'; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:0.02em; }
+.brand .name small{ display:block; font-family:'Work Sans'; text-transform:none; font-weight:500; font-size:11px; letter-spacing:0.08em; color:var(--ink-soft); margin-top:-2px; }
+.topbar .call{
+  font-family:'IBM Plex Mono'; font-size:14px; font-weight:600;
+  border:1.5px solid var(--ink); padding:9px 16px; text-decoration:none; color:var(--ink);
+}
+.topbar .call:hover{ background:var(--ink); color:var(--bg); }
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:36px 0 56px;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:44px; align-items:center; }
+@media (max-width:920px){ .hero-grid{ grid-template-columns:1fr; } }
+.eyebrow{
+  font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--turq); display:flex; align-items:center; gap:8px; margin-bottom:14px;
+}
+.eyebrow::before{ content:""; width:20px; height:2px; background:var(--copper); }
+h1.headline{ font-size:clamp(38px,6vw,60px); line-height:0.98; }
+h1.headline .accent{ color:var(--copper); }
+.hero p.lede{ font-size:17px; color:var(--ink-soft); max-width:48ch; margin-top:18px; }
+.hero-ctas{ display:flex; gap:12px; margin-top:26px; flex-wrap:wrap; }
+.btn{
+  font-family:'IBM Plex Mono'; font-weight:600; font-size:14px;
+  padding:13px 22px; text-decoration:none; display:inline-block;
+}
+.btn.primary{ background:var(--copper); color:var(--copper-ink); }
+.btn.primary:hover{ opacity:0.9; }
+.btn.ghost{ border:1.5px solid var(--ink); color:var(--ink); }
+.btn.ghost:hover{ background:var(--ink); color:var(--bg); }
+
+.hero-video-card{
+  background:#000; border:1px solid var(--line); box-shadow:var(--shadow), 0 0 40px -12px rgba(63,216,201,0.35);
+  padding:14px; margin-bottom:16px; display:flex; align-items:center; justify-content:center;
+}
+.hero-video-card video{ display:block; width:100%; max-width:190px; height:auto; margin:0 auto; }
+
+.hero-card{
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
+  padding:26px;
+}
+.hero-card .tag{
+  font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--turq); margin-bottom:10px;
+}
+.hero-card h3{ font-size:22px; }
+.hero-card ul{ list-style:none; padding:0; margin:16px 0 0; display:flex; flex-direction:column; gap:10px; }
+.hero-card li{ display:flex; justify-content:space-between; gap:12px; font-size:13.8px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+.hero-card li:last-child{ border-bottom:none; padding-bottom:0; }
+.hero-card li .k{ color:var(--ink-soft); }
+.hero-card li .v{ font-weight:600; }
+
+/* ---------- Sections generic ---------- */
+section{ padding:56px 0; border-bottom:1px solid var(--line); }
+section:last-of-type{ border-bottom:none; }
+.section-tag{
+  font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--turq); margin-bottom:8px;
+}
+h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
+.section-intro{ color:var(--ink-soft); font-size:15px; max-width:56ch; margin-bottom:34px; }
+
+/* ---------- Features ---------- */
+.feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:760px){ .feature-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .feature-grid{ grid-template-columns:1fr; } }
+.feature{ background:var(--surface); padding:24px 22px; }
+.feature .num{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--copper); margin-bottom:12px; }
+.feature h4{ font-family:'Work Sans'; font-weight:700; font-size:15.5px; text-transform:none; letter-spacing:0; margin-bottom:6px; }
+.feature p{ font-size:13.6px; color:var(--ink-soft); margin:0; }
+
+/* ---------- Specs ---------- */
+.specs-panel{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:640px){ .specs-panel{ grid-template-columns:1fr; } }
+.specs-panel .row{ background:var(--surface); padding:14px 20px; display:flex; justify-content:space-between; gap:16px; }
+.specs-panel .row .k{ color:var(--ink-soft); font-size:13.8px; }
+.specs-panel .row .v{ font-weight:600; font-size:14px; text-align:right; }
+
+/* ---------- Placement ideas ---------- */
+.chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.chip{
+  font-family:'IBM Plex Mono'; font-size:12.5px; padding:9px 15px;
+  border:1px solid var(--line); background:var(--surface);
+}
+
+/* ---------- Local proof ---------- */
+.local-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:640px){ .local-grid{ grid-template-columns:1fr; } }
+.local-card{ background:var(--surface); padding:20px 24px; display:flex; flex-direction:column; gap:6px; }
+.local-card .row{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; }
+.local-card .venue{ font-family:'Big Shoulders Display'; font-weight:700; font-size:21px; text-transform:uppercase; letter-spacing:0.01em; }
+.local-card .loc{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--turq); flex:none; }
+.local-card .note{ font-size:12.5px; color:var(--ink-soft); }
+
+/* ---------- Pricing ---------- */
+.price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:640px){ .price-grid{ grid-template-columns:1fr; } }
+.price-tile{ background:var(--surface); padding:26px 24px; }
+.price-tile .qty{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--turq); }
+.price-tile .amount{ font-family:'Big Shoulders Display'; font-weight:800; font-size:44px; color:var(--copper); margin-top:6px; line-height:1; }
+.price-tile .amount .unit{ font-family:'Work Sans'; font-weight:500; font-size:14px; color:var(--ink-soft); margin-left:4px; }
+.price-tile .desc{ font-size:13.5px; color:var(--ink-soft); margin-top:10px; }
+.price-note{
+  margin-top:16px; font-family:'IBM Plex Mono'; font-size:13px;
+  border:1px dashed var(--copper); background:var(--surface); padding:12px 16px; color:var(--ink-soft);
+}
+.price-note strong{ color:var(--ink); }
+
+/* ---------- Wire / ACH ---------- */
+.wire-card{
+  margin-top:18px; background:var(--ink); border:1px solid var(--ink); overflow:hidden;
+}
+:root[data-theme="dark"] .wire-card, :root:not([data-theme="light"]) .wire-card{ background:var(--surface-2); border-color:var(--line); }
+.wire-head{
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:14px 20px; border-bottom:1px dashed rgba(255,255,255,0.22);
+}
+:root[data-theme="dark"] .wire-head, :root:not([data-theme="light"]) .wire-head{ border-bottom-color:var(--line); }
+.wire-head .t{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--copper); }
+.wire-head .copy-all{
+  font-family:'IBM Plex Mono'; font-size:11.5px; font-weight:600; color:var(--bg); background:var(--copper);
+  border:none; padding:7px 13px; cursor:pointer;
+}
+.wire-head .copy-all:hover{ opacity:0.88; }
+.wire-body{ padding:18px 20px 20px; display:grid; grid-template-columns:1fr 1fr; gap:16px 26px; color:var(--bg); }
+:root[data-theme="dark"] .wire-body, :root:not([data-theme="light"]) .wire-body{ color:var(--ink); }
+@media (max-width:520px){ .wire-body{ grid-template-columns:1fr; } }
+.wire-body .field{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; }
+.wire-body .field .k{ font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.6; }
+.wire-body .field .v{ font-family:'IBM Plex Mono'; font-size:14.5px; margin-top:4px; }
+.wire-body .field button{
+  flex:none; font-family:'IBM Plex Mono'; font-size:10.5px; background:transparent;
+  border:1px solid rgba(255,255,255,0.3); color:inherit; opacity:0.75; padding:4px 8px; cursor:pointer;
+}
+:root[data-theme="dark"] .wire-body .field button, :root:not([data-theme="light"]) .wire-body .field button{ border-color:var(--line); }
+.wire-body .field button:hover{ opacity:1; border-color:var(--copper); color:var(--copper); }
+.wire-body .field button.copied{ color:var(--turq); border-color:var(--turq); opacity:1; }
+.wire-note{ padding:0 20px 18px; font-size:11.5px; opacity:0.6; color:var(--bg); }
+:root[data-theme="dark"] .wire-note, :root:not([data-theme="light"]) .wire-note{ color:var(--ink); }
+
+/* ---------- Shipping & availability ---------- */
+.ship-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:700px){ .ship-grid{ grid-template-columns:1fr; } }
+.ship-card{ background:var(--surface); padding:24px 24px 22px; }
+.ship-card .badge{
+  display:inline-block; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase;
+  padding:5px 11px; margin-bottom:12px;
+}
+.ship-card.now .badge{ background:var(--turq-soft); color:var(--turq); }
+.ship-card.wait .badge{ background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line); }
+.ship-card h4{ font-family:'Work Sans'; font-weight:700; font-size:16px; text-transform:none; letter-spacing:0; margin-bottom:8px; }
+.ship-card p{ font-size:13.8px; color:var(--ink-soft); margin:0; }
+.ship-cost{
+  margin-top:14px; font-family:'IBM Plex Mono'; font-size:13px; color:var(--ink-soft);
+  border-top:1px dashed var(--line); padding-top:14px;
+}
+
+/* ---------- Dashboard preview ---------- */
+.dash-window{ border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow); }
+.dash-titlebar{
+  display:flex; align-items:center; gap:8px; padding:11px 16px;
+  border-bottom:1px solid var(--line); background:var(--surface-2);
+}
+.dash-titlebar .dot{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+.dash-titlebar .path{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-faint); margin-left:6px; }
+.dash-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); }
+@media (max-width:700px){ .dash-grid{ grid-template-columns:1fr 1fr; } }
+.dash-tile{ background:var(--surface); padding:20px 18px; }
+.dash-tile .l{ font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-faint); }
+.dash-tile .n{ font-family:'Work Sans'; font-weight:700; font-size:14.5px; margin-top:8px; }
+.dash-tile .n .hi{ color:var(--copper); font-family:'IBM Plex Mono'; }
+.dash-foot{ padding:14px 18px; font-size:12.5px; color:var(--ink-faint); border-top:1px solid var(--line); }
+
+/* ---------- Proforma callout ---------- */
+.proforma-card{
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
+  padding:30px 30px 26px;
+}
+.proforma-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; }
+.proforma-head h3{ font-size:24px; max-width:26ch; }
+.proforma-head .example-tag{
+  flex:none; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--turq); background:var(--turq-soft); padding:6px 12px; margin-top:4px;
+}
+.proforma-card p.desc{ font-size:14px; color:var(--ink-soft); max-width:60ch; margin:10px 0 22px; }
+.proforma-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
+@media (max-width:700px){ .proforma-stats{ grid-template-columns:1fr 1fr; } }
+.proforma-stats .pstat{ background:var(--surface-2); padding:16px; }
+.proforma-stats .pstat .l{ font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-faint); }
+.proforma-stats .pstat .n{ font-family:'IBM Plex Mono'; font-size:20px; font-weight:600; color:var(--copper); margin-top:4px; }
+.proforma-foot{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+.proforma-foot .fine{ font-size:12px; color:var(--ink-faint); max-width:46ch; }
+
+/* ---------- Support ---------- */
+.support-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media (max-width:700px){ .support-grid{ grid-template-columns:1fr; } }
+.support-card{
+  background:var(--surface); border:1px solid var(--line); padding:26px; position:relative;
+}
+.support-card.primary{ border-color:var(--copper); }
+.support-card .role{
+  font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--turq); margin-bottom:10px;
+}
+.support-card h3{ font-size:22px; text-transform:none; letter-spacing:0; font-family:'Work Sans'; font-weight:700; }
+.support-card .org{ color:var(--ink-soft); font-size:13.5px; margin-top:2px; }
+.contact-line{ display:flex; align-items:center; gap:12px; margin-top:14px; flex-wrap:wrap; }
+.support-card .phone{
+  font-family:'IBM Plex Mono'; font-size:22px; font-weight:600; color:var(--copper);
+  text-decoration:none;
+}
+.support-card .email{
+  font-family:'IBM Plex Mono'; font-size:14px; font-weight:500; color:var(--turq);
+  text-decoration:none;
+}
+.copy-inline{
+  font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  border:1px solid var(--line); background:transparent; color:var(--ink-soft); padding:5px 10px; cursor:pointer;
+}
+.copy-inline:hover{ border-color:var(--copper); color:var(--copper); }
+.copy-inline.copied{ border-color:var(--turq); color:var(--turq); }
+.support-card p.for{ margin-top:12px; font-size:13.5px; color:var(--ink-soft); }
+
+/* ---------- FAQ ---------- */
+.faq{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+.faq-item{ background:var(--surface); padding:18px 20px; }
+.faq-item h4{ font-family:'Work Sans'; font-weight:700; font-size:14.5px; text-transform:none; letter-spacing:0; margin-bottom:6px; }
+.faq-item p{ font-size:13.8px; color:var(--ink-soft); margin:0; max-width:64ch; }
+
+/* ---------- Footer ---------- */
+footer{ padding:36px 0 48px; }
+.footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; align-items:flex-start; }
+.footer-brand .name{ font-family:'Big Shoulders Display'; font-weight:800; font-size:20px; text-transform:uppercase; }
+.footer-brand p{ font-size:13px; color:var(--ink-faint); margin-top:6px; max-width:38ch; }
+.footer-contact{ font-size:13.8px; text-align:right; }
+.footer-contact .l{ color:var(--ink-faint); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; }
+.footer-contact .v{ font-weight:600; margin-top:2px; }
+@media (max-width:600px){ .footer-contact{ text-align:left; } }
+</style>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="mark"></div>
+    <div class="name">Suede Buffalo<small>Vending Co.</small></div>
+  </div>
+  <a class="call" href="tel:5206336437" target="_blank" rel="noopener">(520) 633-6437</a>
+</div>
+
+<div class="wrap">
+  <section class="hero" style="border-top:1px solid var(--line);">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Now placing machines across Southern Arizona</div>
+        <h1 class="headline">Snacks that<br>pay for<br><span class="accent">themselves.</span></h1>
+        <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors &mdash; delivered, set up, and supported by a local team.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="tel:5206336437" target="_blank" rel="noopener">Call (520) 633-6437</a>
+          <a class="btn ghost" href="#specs">See specs</a>
+        </div>
+      </div>
+      <div class="hero-video-card">
+        <video autoplay muted loop playsinline poster="assets/poster.jpg">
+          <source src="assets/machine-360.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-card">
+        <div class="tag">Compact Tabletop Unit</div>
+        <h3>What's inside the box</h3>
+        <ul>
+          <li><span class="k">Footprint</span><span class="v">50 &times; 28 &times; 80 cm</span></li>
+          <li><span class="k">Weight</span><span class="v">&asymp; 120 lb (54 kg)</span></li>
+          <li><span class="k">Payment</span><span class="v">All major debit &amp; credit cards</span></li>
+          <li><span class="k">Capacity</span><span class="v">Up to 150 items</span></li>
+          <li><span class="k">Inventory tools</span><span class="v">Check stock from your phone</span></li>
+          <li><span class="k">Warranty</span><span class="v">1 year, parts included</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="section-tag">Why operators choose it</div>
+    <h2 class="section-title">Built to sit anywhere and run itself</h2>
+    <p class="section-intro">No plumbing, no dedicated outlet requirements beyond a standard wall socket, and no cash to collect or count &mdash; every sale shows up in the same dashboard the moment it happens.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="num">01</div>
+        <h4>Tap-to-pay, out of the box</h4>
+        <p>Accepts all major debit and credit cards plus Apple Pay &mdash; fully cashless, no separate terminal to manage.</p>
+      </div>
+      <div class="feature">
+        <div class="num">02</div>
+        <h4>Age &amp; ID verification</h4>
+        <p>Built-in scanning for restricted products, so age-gated items can be sold without a second employee checking IDs.</p>
+      </div>
+      <div class="feature">
+        <div class="num">03</div>
+        <h4>Check inventory from your phone</h4>
+        <p>See what's low, what's selling, and today's totals from a simple app &mdash; no need to open the machine to check stock.</p>
+      </div>
+      <div class="feature">
+        <div class="num">04</div>
+        <h4>Small footprint</h4>
+        <p>Under a meter deep &mdash; fits a hallway, a bar corner, or a break room without eating the floor plan. Sits on a tabletop or counter, no mounting needed.</p>
+      </div>
+      <div class="feature">
+        <div class="num">05</div>
+        <h4>Flexible lanes</h4>
+        <p>Adjustable coil lanes handle everything from chip bags to slim packaged goods, 20&ndash;150 units per load depending on product size.</p>
+      </div>
+      <div class="feature">
+        <div class="num">06</div>
+        <h4>One point of contact</h4>
+        <p>A direct line to a real person for orders, questions, and service &mdash; no call centers, no ticket queues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs">
+    <div class="section-tag">Spec sheet</div>
+    <h2 class="section-title">Full unit specifications</h2>
+    <p class="section-intro">Our standard placement unit for snacks, small packaged goods, and age-restricted items &mdash; sits on a tabletop, no mounting required.</p>
+    <div class="specs-panel">
+      <div class="row"><span class="k">Dimensions</span><span class="v mono">50 &times; 28 &times; 80 cm</span></div>
+      <div class="row"><span class="k">Weight</span><span class="v mono">&asymp; 120 lb (54 kg)</span></div>
+      <div class="row"><span class="k">Mount type</span><span class="v">Tabletop / countertop (surface rated 120+ lb)</span></div>
+      <div class="row"><span class="k">Product type</span><span class="v">Dry goods only</span></div>
+      <div class="row"><span class="k">Placement</span><span class="v">Indoors only</span></div>
+      <div class="row"><span class="k">Payment methods</span><span class="v">Tap / chip / Apple Pay</span></div>
+      <div class="row"><span class="k">Cards accepted</span><span class="v">All major debit &amp; credit cards</span></div>
+      <div class="row"><span class="k">Lane width</span><span class="v mono">7.5 cm</span></div>
+      <div class="row"><span class="k">Lane height</span><span class="v mono">12.5 cm</span></div>
+      <div class="row"><span class="k">Item capacity</span><span class="v">20&ndash;150 units</span></div>
+      <div class="row"><span class="k">Age verification</span><span class="v">Built-in ID scan</span></div>
+      <div class="row"><span class="k">Inventory management</span><span class="v">Remote / app-based</span></div>
+      <div class="row"><span class="k">Power</span><span class="v">Standard wall outlet</span></div>
+      <div class="row"><span class="k">Warranty</span><span class="v">1 year, parts included</span></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-tag">Pricing</div>
+    <h2 class="section-title">Minimum order: one machine</h2>
+    <p class="section-intro">No fleet commitment required &mdash; place one machine, or start with two and split the delivery run.</p>
+    <div class="price-grid">
+      <div class="price-tile">
+        <div class="qty">Minimum order &middot; 1 machine</div>
+        <div class="amount">$5,000<span class="unit">USD</span></div>
+        <div class="desc">Delivered, installed, and set up on your cloud account.</div>
+      </div>
+      <div class="price-tile">
+        <div class="qty">2 machines</div>
+        <div class="amount">$10,000<span class="unit">USD</span></div>
+        <div class="desc">Two units, same delivery window.</div>
+      </div>
+    </div>
+    <div class="price-note">Bulk orders may receive a discount &mdash; call (520) 633-6437 for a quote on 3+ machines. <strong>Wire transfer or ACH is our preferred way to pay</strong> &mdash; details below.</div>
+
+    <div class="wire-card">
+      <div class="wire-head">
+        <span class="t">Preferred &middot; Wire / ACH Payment Details</span>
+        <button class="copy-all" type="button" data-copy-all>Copy all</button>
+      </div>
+      <div class="wire-body">
+        <div class="field"><div><div class="k">Account Name</div><div class="v" data-copy-value>Suede Buffalo LLC</div></div><button type="button" data-copy>Copy</button></div>
+        <div class="field"><div><div class="k">Account Type</div><div class="v" data-copy-value>Business Checking</div></div><button type="button" data-copy>Copy</button></div>
+        <div class="field"><div><div class="k">Account Number</div><div class="v" data-copy-value data-b64="NDAwMTExMDAyNjA4"></div></div><button type="button" data-copy>Copy</button></div>
+        <div class="field"><div><div class="k">Routing Number</div><div class="v" data-copy-value data-b64="MTI0MzAzMjQz"></div></div><button type="button" data-copy>Copy</button></div>
+        <div class="field" style="grid-column:1/-1;"><div><div class="k">Bank Address</div><div class="v" data-copy-value data-b64="QW1lcmljYW4gRXhwcmVzcyBOYXRpb25hbCBCYW5rLCBQLk8uIEJveCAzMDM4MSwgU2FsdCBMYWtlIENpdHksIFVUIDg0MTMw"></div></div><button type="button" data-copy>Copy</button></div>
+      </div>
+      <div class="wire-note">Please reference your order/shipping address in the memo, and text (520) 633-6437 once sent so we can confirm receipt. Want to verify who you're sending to first? Happy to share ID or other verification &mdash; just ask.</div>
+    </div>
+
+    <div class="section-tag" style="margin-top:34px;">Shipping &amp; availability</div>
+    <div class="ship-grid" style="margin-top:8px;">
+      <div class="ship-card now">
+        <span class="badge">In stock now</span>
+        <h4>Arizona, 1&ndash;2 machines: shipping's on us</h4>
+        <p>As of Sept 2, 2026 we have 1&ndash;2 machines on hand. If you're in Arizona and ordering within that stock, we cover shipping and logistics &mdash; no extra charge to you.</p>
+      </div>
+      <div class="ship-card wait">
+        <span class="badge">If we're restocking</span>
+        <h4>Outside that stock: up to 60 days</h4>
+        <p>If our current machines are already placed or sold before your order comes in, you're ordering a restock &mdash; plan on up to 60 days from when we confirm the order with our supplier. If it's not local delivery, add a $50 per-machine crating fee to safely transport it.</p>
+      </div>
+    </div>
+    <div class="ship-cost">Shipping cost otherwise is TBD by location and order size &mdash; our supplier's logistics/assembly charge has historically run around $300 per machine as a rough reference point, plus the $50 crate noted above on 60-day restock orders.</div>
+  </section>
+
+  <section id="proforma">
+    <div class="section-tag">Run the numbers</div>
+    <h2 class="section-title">What one machine can realistically earn</h2>
+    <p class="section-intro">We built a nightly sales model so you can see the math before you buy &mdash; plug in your own venue size, price point, and nights open to get your number.</p>
+    <div class="proforma-card">
+      <div class="proforma-head">
+        <h3>Sample scenario: a single machine selling vapes in a bar</h3>
+        <span class="example-tag">Worked example</span>
+      </div>
+      <p class="desc">Using a 500-capacity bar, a $25 sell price against a $10 cost, and the adult vaping rate applied to nightly attendance, here's what the weighted model (a mix of slow, average, busy, and peak nights) projects. Worth noting: other operators are pricing the same vapes at $30 a unit in nightlife venues (bars and clubs) &mdash; this example runs conservative at $25.</p>
+      <div class="proforma-stats">
+        <div class="pstat"><div class="l">Unit margin</div><div class="n">60%</div></div>
+        <div class="pstat"><div class="l">Avg. net / month</div><div class="n">$2,510</div></div>
+        <div class="pstat"><div class="l">Avg. net / year</div><div class="n">$30,150</div></div>
+        <div class="pstat"><div class="l">Venue cost modeled</div><div class="n">$250/mo</div></div>
+      </div>
+      <div class="proforma-foot">
+        <a class="btn primary" href="https://pharaohm33.github.io/vape-proforma/" target="_blank" rel="noopener">Open the interactive proforma &#8599;</a>
+        <span class="fine">Vapes are shown only as one example product category &mdash; the calculator lets you change the product, price, cost, and venue size. Illustrative model based on published adult vaping-rate estimates; not a guarantee of results.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="placement">
+    <div class="section-tag">Where it fits</div>
+    <h2 class="section-title">Placement ideas we've already tested</h2>
+    <div class="chip-row">
+      <span class="chip">Bars &amp; taprooms</span>
+      <span class="chip">Offices &amp; break rooms</span>
+      <span class="chip">Smoke &amp; vape shops</span>
+      <span class="chip">Laundromats</span>
+      <span class="chip">Apartment lobbies</span>
+      <span class="chip">Auto shops</span>
+      <span class="chip">Gyms</span>
+      <span class="chip">Retail counters</span>
+    </div>
+  </section>
+
+  <section id="local">
+    <div class="section-tag">See it in Tucson</div>
+    <h2 class="section-title">This exact machine is already running locally</h2>
+    <p class="section-intro">Not a rendering, not a promise &mdash; you can go see this same unit in person before you order.</p>
+    <div class="local-grid">
+      <div class="local-card">
+        <div class="row"><div class="venue">HighWire</div><div class="loc">Tucson, AZ</div></div>
+      </div>
+      <div class="local-card">
+        <div class="row"><div class="venue">Click's Billiards</div><div class="loc">Tucson, AZ</div></div>
+        <div class="note">Heads up: their unit runs about 2&times; the size of the one shown on our Instagram.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard">
+    <div class="section-tag">Manage it from anywhere</div>
+    <h2 class="section-title">Your vendor dashboard</h2>
+    <p class="section-intro">Every machine comes with its own login to a cloud dashboard &mdash; this is what you'll use day to day to watch sales and know when to restock.</p>
+    <div class="dash-window">
+      <div class="dash-titlebar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="path">Dashboard &gt; Dashboard</span>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-tile">
+          <div class="l">Device status</div>
+          <div class="n">Online, offline &amp; fault counts, <span class="hi">live</span></div>
+        </div>
+        <div class="dash-tile">
+          <div class="l">Current sales</div>
+          <div class="n">Today, yesterday &amp; month-to-date</div>
+        </div>
+        <div class="dash-tile">
+          <div class="l">To-do list</div>
+          <div class="n">Restock, delivery &amp; refund flags</div>
+        </div>
+        <div class="dash-tile">
+          <div class="l">Sales volume</div>
+          <div class="n">Day / week / month trend chart</div>
+        </div>
+      </div>
+      <div class="dash-foot">Also included: sales-category breakdown, payment-method split, and a goods/device sales ranking &mdash; all in the same view.</div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="section-tag">Who to call</div>
+    <h2 class="section-title">One number. That's the whole support tree.</h2>
+    <p class="section-intro">For orders, placement, questions, or service, call Emmanuel directly. If a specialized technician is ever needed, we'll bring them in and stay on it with you &mdash; you won't be handed off to a call center.</p>
+    <div class="support-grid" style="grid-template-columns:1fr;">
+      <div class="support-card primary">
+        <div class="role">Sales &amp; Support</div>
+        <h3>Emmanuel Montano</h3>
+        <div class="org">Suede Buffalo LLC</div>
+        <div class="contact-line">
+          <a class="phone" href="tel:5206336437" target="_blank" rel="noopener">(520) 633-6437</a>
+          <button type="button" class="copy-inline" data-copy-inline="(520) 633-6437">Copy number</button>
+        </div>
+        <div class="contact-line" style="margin-top:8px;">
+          <a class="email" href="mailto:montanoemmanuel@gmail.com" target="_blank" rel="noopener">montanoemmanuel@gmail.com</a>
+          <button type="button" class="copy-inline" data-copy-inline="montanoemmanuel@gmail.com">Copy email</button>
+        </div>
+        <p class="for">For orders, placement, pricing, troubleshooting, and everything in between.</p>
+        <p class="for" style="margin-top:10px;"><strong style="color:var(--ink);">Ready to order?</strong> Text or call with your shipping address to get started.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-tag">Good to know</div>
+    <h2 class="section-title">Before you call</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h4>Do I need to stock it myself?</h4>
+        <p>Yes &mdash; you (or your staff) load and restock the machine. The companion app tells you exactly what's low so restocking is quick.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What's covered under warranty?</h4>
+        <p>Every machine includes a 1-year warranty. If a part fails within that year, it's replaced at no charge for the part.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if a customer's card doesn't work or a part fails?</h4>
+        <p>Call Emmanuel above. He'll troubleshoot it with you and bring in a technical specialist if the machine needs one.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What can it sell, and where can it go?</h4>
+        <p>Dry goods only &mdash; snacks, chips, shelf-stable items. It plugs into a standard outlet. It sits on a tabletop or counter &mdash; just make sure the surface is rated to hold at least 120 lb. This machine is meant for indoor placement only; do not place it outdoors where it can get rained on or take prolonged sun exposure.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can it sell age-restricted products?</h4>
+        <p>Yes, the built-in scanner supports age/ID verification for restricted items in addition to standard snacks.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="name">Suede Buffalo Vending Co.</div>
+        <p>Locally placed and serviced vending machines for bars, offices, and small retail across Southern Arizona.</p>
+      </div>
+      <div class="footer-contact">
+        <div class="l">Sales &amp; Support</div>
+        <div class="v">Emmanuel Montano &middot; (520) 633-6437</div>
+        <div class="v" style="font-weight:500;">montanoemmanuel@gmail.com</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // Bank account/routing/address aren't stored as plain text in the page
+  // source (keeps them off search-engine indexes and simple scrapers) --
+  // decoded into the DOM on load so visitors just see them normally.
+  document.querySelectorAll('[data-b64]').forEach(function(el){
+    try{ el.textContent = decodeURIComponent(escape(atob(el.getAttribute('data-b64')))); }catch(e){}
+    el.removeAttribute('data-b64');
+  });
+
+  function flash(btn){
+    var original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1400);
+  }
+  function copyText(text, btn){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(btn); }).catch(function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); flash(btn); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  }
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var field = btn.closest('.field');
+      var val = field ? field.querySelector('[data-copy-value]') : null;
+      if(val) copyText(val.textContent.trim(), btn);
+    });
+  });
+  var copyAllBtn = document.querySelector('[data-copy-all]');
+  if(copyAllBtn){
+    copyAllBtn.addEventListener('click', function(){
+      var lines = [];
+      document.querySelectorAll('.wire-body [data-copy-value]').forEach(function(el){
+        var label = el.parentElement.querySelector('.k');
+        lines.push((label ? label.textContent.trim() + ': ' : '') + el.textContent.trim());
+      });
+      copyText(lines.join('\n'), copyAllBtn);
+    });
+  }
+  document.querySelectorAll('[data-copy-inline]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      copyText(btn.getAttribute('data-copy-inline'), btn);
+    });
+  });
+})();
+</script>
