@@ -21,7 +21,9 @@
 }
 
 *{box-sizing:border-box;}
+html{ scroll-behavior:smooth; }
 body{
+  margin:0;
   background:var(--bg);
   color:var(--ink);
   font-family:'Work Sans', system-ui, sans-serif;
@@ -36,7 +38,7 @@ body{
   .nav-link{ font-size:10px; }
   .hero{ padding:20px 0 40px; }
   h1.headline{ font-size:clamp(46px,13vw,60px); }
-  .hero p.lede{ font-size:18px; }
+  .hero p.lede{ font-size:14.5px; }
   .eyebrow{ font-size:13px; }
   .hero-ctas .btn{ font-size:15px; padding:15px 22px; }
 }
@@ -94,7 +96,7 @@ h1.headline .accent{ color:var(--copper); }
 h1.headline .ch{ display:inline-block; opacity:0; transform:translateY(0.4em) rotate(4deg); animation:letterIn .55s cubic-bezier(.2,.8,.2,1) forwards; }
 @keyframes letterIn{ to{ opacity:1; transform:translateY(0) rotate(0deg); } }
 .hero p.lede{
-  font-size:17px; color:var(--ink-soft); max-width:48ch; margin:18px auto 0;
+  font-size:15px; color:var(--ink-soft); max-width:48ch; margin:18px auto 0;
   opacity:0; animation:fadeUp .6s ease-out 1.5s forwards;
 }
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:translateY(0);} }
@@ -123,13 +125,11 @@ h1.headline .ch{ display:inline-block; opacity:0; transform:translateY(0.4em) ro
 .btn.ghost:hover{ background:var(--ink); color:var(--bg); }
 
 .hero-video-card{
-  background:#000; border:1px solid var(--line); box-shadow:var(--shadow), 0 0 40px -12px rgba(63,216,201,0.35);
-  padding:14px; margin:0 auto 16px;
-  width:min(215px, 37vh * 0.46); aspect-ratio:976/2122;
-  display:flex; align-items:center; justify-content:center;
+  position:relative; background:#000; border:1px solid var(--line); box-shadow:var(--shadow), 0 0 40px -12px rgba(63,216,201,0.35);
+  margin:0 auto 16px;
+  width:180px; aspect-ratio:1/1;
 }
-@media (max-height:820px){ .hero-video-card{ width:min(168px, 31vh * 0.46); } }
-.hero-video-card video{ display:block; width:100%; height:100%; object-fit:contain; }
+.hero-video-card video{ position:absolute; inset:14px; display:block; width:calc(100% - 28px); height:calc(100% - 28px); object-fit:contain; }
 
 .hero-card{
   background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
@@ -352,7 +352,7 @@ footer{ padding:36px 0 48px; }
 <div class="topbar">
   <div class="brand">
     <div class="mark"></div>
-    <div class="name">Suede Buffalo<small>Vending Co.</small></div>
+    <div class="name">Suede Buffalo</div>
   </div>
   <div class="topbar-right">
     <a class="nav-link" href="https://pharaohm33.github.io/smart-vending-placement/">Free Profit Share Placement</a>
@@ -366,7 +366,7 @@ footer{ padding:36px 0 48px; }
       <div class="hero-text">
         <div class="eyebrow">Now placing machines across Southern Arizona</div>
         <h1 class="headline" id="headline">Premium Vending<br>Pays For<br><span class="accent">Itself.</span></h1>
-        <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors &mdash; delivered, set up, and supported by a local team.</p>
+        <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors. Delivered, set up, and supported by a local team.</p>
       </div>
       <div class="hero-video-card">
         <video autoplay muted loop playsinline poster="assets/poster.jpg">
@@ -395,12 +395,12 @@ footer{ padding:36px 0 48px; }
   <section id="features">
     <div class="section-tag">Why operators choose it</div>
     <h2 class="section-title">Built to sit anywhere and run itself</h2>
-    <p class="section-intro">No plumbing, no dedicated outlet requirements beyond a standard wall socket, and no cash to collect or count &mdash; every sale shows up in the same dashboard the moment it happens.</p>
+    <p class="section-intro">No plumbing, no dedicated outlet requirements beyond a standard wall socket, and no cash to collect or count. Every sale shows up in the same dashboard the moment it happens.</p>
     <div class="feature-grid">
       <div class="feature">
         <div class="num">01</div>
         <h4>Tap-to-pay, out of the box</h4>
-        <p>Accepts all major debit and credit cards plus Apple Pay &mdash; fully cashless, no separate terminal to manage.</p>
+        <p>Accepts all major debit and credit cards plus Apple Pay. Fully cashless, no separate terminal to manage.</p>
       </div>
       <div class="feature">
         <div class="num">02</div>
@@ -410,12 +410,12 @@ footer{ padding:36px 0 48px; }
       <div class="feature">
         <div class="num">03</div>
         <h4>Check inventory from your phone</h4>
-        <p>See what's low, what's selling, and today's totals from a simple app &mdash; no need to open the machine to check stock.</p>
+        <p>See what's low, what's selling, and today's totals from a simple app. No need to open the machine to check stock.</p>
       </div>
       <div class="feature">
         <div class="num">04</div>
         <h4>Small footprint</h4>
-        <p>Under a meter deep &mdash; fits a hallway, a bar corner, or a break room without eating the floor plan. Sits on a tabletop or counter, no mounting needed.</p>
+        <p>Under a meter deep. Fits a hallway, a bar corner, or a break room without eating the floor plan. Sits on a tabletop or counter, no mounting needed.</p>
       </div>
       <div class="feature">
         <div class="num">05</div>
@@ -425,7 +425,7 @@ footer{ padding:36px 0 48px; }
       <div class="feature">
         <div class="num">06</div>
         <h4>One point of contact</h4>
-        <p>A direct line to a real person for orders, questions, and service &mdash; no call centers, no ticket queues.</p>
+        <p>A direct line to a real person for orders, questions, and service. No call centers, no ticket queues.</p>
       </div>
     </div>
   </section>
@@ -433,7 +433,7 @@ footer{ padding:36px 0 48px; }
   <section id="specs">
     <div class="section-tag">Spec sheet</div>
     <h2 class="section-title">Full unit specifications</h2>
-    <p class="section-intro">Our standard placement unit for snacks, small packaged goods, and age-restricted items &mdash; sits on a tabletop, no mounting required.</p>
+    <p class="section-intro">Our standard placement unit for snacks, small packaged goods, and age-restricted items. Sits on a tabletop, no mounting required.</p>
     <div class="specs-panel">
       <div class="row"><span class="k">Dimensions</span><span class="v mono">50 &times; 28 &times; 80 cm</span></div>
       <div class="row"><span class="k">Weight</span><span class="v mono">&asymp; 120 lb (54 kg)</span></div>
@@ -455,13 +455,13 @@ footer{ padding:36px 0 48px; }
   <section id="proforma">
     <div class="section-tag">Run the numbers</div>
     <h2 class="section-title">What one machine can realistically earn</h2>
-    <p class="section-intro">We built a nightly sales model so you can see the math before you buy &mdash; plug in your own venue size, price point, and nights open to get your number.</p>
+    <p class="section-intro">We built a nightly sales model so you can see the math before you buy. Plug in your own venue size, price point, and nights open to get your number.</p>
     <div class="proforma-card">
       <div class="proforma-head">
         <h3>Sample scenario: a single machine selling vapes in a bar</h3>
         <span class="example-tag">Worked example</span>
       </div>
-      <p class="desc">Using a 500-capacity bar, a $25 sell price against a $10 cost, and the adult vaping rate applied to nightly attendance, here's what the weighted model (a mix of slow, average, busy, and peak nights) projects. Worth noting: other operators are pricing the same vapes at $30 a unit in nightlife venues (bars and clubs) &mdash; this example runs conservative at $25.</p>
+      <p class="desc">Using a 500-capacity bar, a $25 sell price against a $10 cost, and the adult vaping rate applied to nightly attendance, here's what the weighted model (a mix of slow, average, busy, and peak nights) projects. Worth noting: other operators are pricing the same vapes at $30 a unit in nightlife venues (bars and clubs). This example runs conservative at $25.</p>
       <div class="proforma-stats">
         <div class="pstat"><div class="l">Unit margin</div><div class="n">60%</div></div>
         <div class="pstat"><div class="l">Avg. net / month</div><div class="n">$2,510</div></div>
@@ -470,7 +470,7 @@ footer{ padding:36px 0 48px; }
       </div>
       <div class="proforma-foot">
         <a class="btn primary" href="https://pharaohm33.github.io/vape-proforma/" target="_blank" rel="noopener">Open the interactive proforma &#8599;</a>
-        <span class="fine">Vapes are shown only as one example product category &mdash; the calculator lets you change the product, price, cost, and venue size. Illustrative model based on published adult vaping-rate estimates; not a guarantee of results.</span>
+        <span class="fine">Vapes are shown only as one example product category. The calculator lets you change the product, price, cost, and venue size. Illustrative model based on published adult vaping-rate estimates; not a guarantee of results.</span>
       </div>
     </div>
   </section>
@@ -478,7 +478,7 @@ footer{ padding:36px 0 48px; }
   <section id="pricing">
     <div class="section-tag">Pricing</div>
     <h2 class="section-title">Minimum order: one machine</h2>
-    <p class="section-intro">No fleet commitment required &mdash; place one machine, or start with two and split the delivery run.</p>
+    <p class="section-intro">No fleet commitment required. Place one machine, or start with two and split the delivery run.</p>
     <div class="price-grid">
       <div class="price-tile">
         <div class="qty">Minimum order &middot; 1 machine</div>
@@ -491,7 +491,7 @@ footer{ padding:36px 0 48px; }
         <div class="desc">Two units, same delivery window.</div>
       </div>
     </div>
-    <div class="price-note">Bulk orders may receive a discount &mdash; call (520) 633-6437 for a quote on 3+ machines. <strong>Wire transfer or ACH is our preferred way to pay</strong> &mdash; details below.</div>
+    <div class="price-note">Bulk orders may receive a discount. Call (520) 633-6437 for a quote on 3+ machines. <strong>Wire transfer or ACH is our preferred way to pay.</strong> Details below.</div>
 
     <div class="finance-card">
       <div class="finance-head"><span class="t">Don't have the cash on hand? You may qualify for financing</span></div>
@@ -506,7 +506,7 @@ footer{ padding:36px 0 48px; }
           <div class="req">675+ FICO, verifiable income, tax returns showing $32,000+ in annual income.</div>
           <a class="btn ghost" href="https://blueroyalty.net/montano" target="_blank" rel="noopener">Check Blue Royalty &#8599;</a>
         </div>
-        <div class="finance-partner">Don't qualify on your own? You can still get in &mdash; ask around your social circle for someone who does, and offer them a share of the machine's profit in exchange for putting it on their credit.</div>
+        <div class="finance-partner">Don't qualify on your own? You can still get in. Ask around your social circle for someone who does, and offer them a share of the machine's profit in exchange for putting it on their credit.</div>
       </div>
     </div>
 
@@ -522,7 +522,7 @@ footer{ padding:36px 0 48px; }
         <div class="field"><div><div class="k">Routing Number</div><div class="v" data-copy-value data-b64="MTI0MzAzMjQz"></div></div><button type="button" data-copy>Copy</button></div>
         <div class="field" style="grid-column:1/-1;"><div><div class="k">Bank Address</div><div class="v" data-copy-value data-b64="QW1lcmljYW4gRXhwcmVzcyBOYXRpb25hbCBCYW5rLCBQLk8uIEJveCAzMDM4MSwgU2FsdCBMYWtlIENpdHksIFVUIDg0MTMw"></div></div><button type="button" data-copy>Copy</button></div>
       </div>
-      <div class="wire-note">Please reference your order/shipping address in the memo, and text (520) 633-6437 once sent so we can confirm receipt. Want to verify who you're sending to first? Happy to share ID or other verification &mdash; just ask.</div>
+      <div class="wire-note">Please reference your order/shipping address in the memo, and text (520) 633-6437 once sent so we can confirm receipt. Want to verify who you're sending to first? Happy to share ID or other verification. Just ask.</div>
     </div>
 
     <div class="section-tag" style="margin-top:34px;">Shipping &amp; availability</div>
@@ -530,15 +530,15 @@ footer{ padding:36px 0 48px; }
       <div class="ship-card now">
         <span class="badge">In stock now</span>
         <h4>Arizona, 1&ndash;2 machines: shipping's on us</h4>
-        <p>As of Sept 2, 2026 we have 1&ndash;2 machines on hand. If you're in Arizona and ordering within that stock, we cover shipping and logistics &mdash; no extra charge to you.</p>
+        <p>As of Sept 2, 2026 we have 1&ndash;2 machines on hand. If you're in Arizona and ordering within that stock, we cover shipping and logistics. No extra charge to you.</p>
       </div>
       <div class="ship-card wait">
         <span class="badge">If we're restocking</span>
         <h4>Outside that stock: up to 60 days</h4>
-        <p>If our current machines are already placed or sold before your order comes in, you're ordering a restock &mdash; plan on up to 60 days from when we confirm the order with our supplier. If it's not local delivery, add a $50 per-machine crating fee to safely transport it.</p>
+        <p>If our current machines are already placed or sold before your order comes in, you're ordering a restock. Plan on up to 60 days from when we confirm the order with our supplier. If it's not local delivery, add a $50 per-machine crating fee to safely transport it.</p>
       </div>
     </div>
-    <div class="ship-cost">Shipping cost otherwise is TBD by location and order size &mdash; our supplier's logistics/assembly charge has historically run around $300 per machine as a rough reference point, plus the $50 crate noted above on 60-day restock orders.</div>
+    <div class="ship-cost">Shipping cost otherwise is TBD by location and order size. Our supplier's logistics/assembly charge has historically run around $300 per machine as a rough reference point, plus the $50 crate noted above on 60-day restock orders.</div>
   </section>
 
   <section id="placement">
@@ -559,7 +559,7 @@ footer{ padding:36px 0 48px; }
   <section id="local">
     <div class="section-tag">See it in Tucson</div>
     <h2 class="section-title">This exact machine is already running locally</h2>
-    <p class="section-intro">Not a rendering, not a promise &mdash; you can go see this same unit in person before you order.</p>
+    <p class="section-intro">Not a rendering, not a promise. You can go see this same unit in person before you order.</p>
     <div class="local-grid">
       <div class="local-card">
         <div class="row"><div class="venue">HighWire</div><div class="loc">Tucson, AZ</div></div>
@@ -574,7 +574,7 @@ footer{ padding:36px 0 48px; }
   <section id="dashboard">
     <div class="section-tag">Manage it from anywhere</div>
     <h2 class="section-title">Your vendor dashboard</h2>
-    <p class="section-intro">Every machine comes with its own login to a cloud dashboard &mdash; this is what you'll use day to day to watch sales and know when to restock.</p>
+    <p class="section-intro">Every machine comes with its own login to a cloud dashboard. This is what you'll use day to day to watch sales and know when to restock.</p>
     <div class="dash-window">
       <div class="dash-titlebar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -598,14 +598,14 @@ footer{ padding:36px 0 48px; }
           <div class="n">Day / week / month trend chart</div>
         </div>
       </div>
-      <div class="dash-foot">Also included: sales-category breakdown, payment-method split, and a goods/device sales ranking &mdash; all in the same view.</div>
+      <div class="dash-foot">Also included: sales-category breakdown, payment-method split, and a goods/device sales ranking, all in the same view.</div>
     </div>
   </section>
 
   <section id="support">
     <div class="section-tag">Who to call</div>
     <h2 class="section-title">One number. That's the whole support tree.</h2>
-    <p class="section-intro">For orders, placement, questions, or service, call Emmanuel directly. If a specialized technician is ever needed, we'll bring them in and stay on it with you &mdash; you won't be handed off to a call center.</p>
+    <p class="section-intro">For orders, placement, questions, or service, call Emmanuel directly. If a specialized technician is ever needed, we'll bring them in and stay on it with you. You won't be handed off to a call center.</p>
     <div class="support-grid" style="grid-template-columns:1fr;">
       <div class="support-card primary">
         <div class="role">Sales &amp; Support</div>
@@ -631,7 +631,7 @@ footer{ padding:36px 0 48px; }
     <div class="faq">
       <div class="faq-item">
         <h4>Do I need to stock it myself?</h4>
-        <p>Yes &mdash; you (or your staff) load and restock the machine. The companion app tells you exactly what's low so restocking is quick.</p>
+        <p>Yes, you (or your staff) load and restock the machine. The companion app tells you exactly what's low so restocking is quick.</p>
       </div>
       <div class="faq-item">
         <h4>What's covered under warranty?</h4>
@@ -643,7 +643,7 @@ footer{ padding:36px 0 48px; }
       </div>
       <div class="faq-item">
         <h4>What can it sell, and where can it go?</h4>
-        <p>Dry goods only &mdash; snacks, chips, shelf-stable items. It plugs into a standard outlet. It sits on a tabletop or counter &mdash; just make sure the surface is rated to hold at least 120 lb. This machine is meant for indoor placement only; do not place it outdoors where it can get rained on or take prolonged sun exposure.</p>
+        <p>Dry goods only: snacks, chips, shelf-stable items. It plugs into a standard outlet. It sits on a tabletop or counter. Just make sure the surface is rated to hold at least 120 lb. This machine is meant for indoor placement only; do not place it outdoors where it can get rained on or take prolonged sun exposure.</p>
       </div>
       <div class="faq-item">
         <h4>Can it sell age-restricted products?</h4>
