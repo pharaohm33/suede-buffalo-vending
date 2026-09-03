@@ -97,9 +97,12 @@ h1.headline .accent{ color:var(--copper); }
 
 .hero-video-card{
   background:#000; border:1px solid var(--line); box-shadow:var(--shadow), 0 0 40px -12px rgba(63,216,201,0.35);
-  padding:14px; margin-bottom:16px; display:flex; align-items:center; justify-content:center;
+  padding:14px; margin:0 auto 16px;
+  width:min(215px, 37vh * 0.46); aspect-ratio:976/2122;
+  display:flex; align-items:center; justify-content:center;
 }
-.hero-video-card video{ display:block; width:100%; max-width:190px; aspect-ratio:2/3; object-fit:cover; object-position:center; margin:0 auto; }
+@media (max-height:820px){ .hero-video-card{ width:min(168px, 31vh * 0.46); } }
+.hero-video-card video{ display:block; width:100%; height:100%; object-fit:contain; }
 
 .hero-card{
   background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
