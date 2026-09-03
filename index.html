@@ -3,17 +3,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root{
-  --bg:#000000;
-  --surface:#1A1410;
-  --surface-2:#221B15;
-  --ink:#F4ECDE;
-  --ink-soft:#B9A996;
+  --bg:#F2EDE3;
+  --surface:#FCFAF5;
+  --surface-2:#E8DFCF;
+  --ink:#231A12;
+  --ink-soft:#6E6152;
+  --ink-faint:#9B8E7C;
+  --line:#DED2BB;
+  --copper:#AD5D25;
+  --copper-ink:#FBF1E6;
+  --turq:#2C8580;
+  --turq-soft:#E2F0EE;
+  --shadow:0 1px 2px rgba(35,26,18,0.08), 0 18px 40px -22px rgba(35,26,18,0.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B140F;
+    --surface:#241C15;
+    --surface-2:#2E241A;
+    --ink:#F4ECDF;
+    --ink-soft:#C3B39E;
+    --ink-faint:#8A7A66;
+    --line:#3B2E22;
+    --copper:#DE8B45;
+    --copper-ink:#241405;
+    --turq:#57C1B8;
+    --turq-soft:#1D3532;
+    --shadow:0 1px 2px rgba(0,0,0,0.4), 0 18px 40px -22px rgba(0,0,0,0.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B140F;
+  --surface:#241C15;
+  --surface-2:#2E241A;
+  --ink:#F4ECDF;
+  --ink-soft:#C3B39E;
   --ink-faint:#8A7A66;
-  --line:#332821;
-  --copper:#E0913F;
-  --copper-ink:#1B1006;
-  --turq:#3FD8C9;
-  --turq-soft:#173539;
+  --line:#3B2E22;
+  --copper:#DE8B45;
+  --copper-ink:#241405;
+  --turq:#57C1B8;
+  --turq-soft:#1D3532;
   --shadow:0 1px 2px rgba(0,0,0,0.4), 0 18px 40px -22px rgba(0,0,0,0.7);
 }
 
@@ -35,12 +65,12 @@ h1,h2,h3{
 }
 .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums; }
 a{ color:var(--copper); }
-.wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+.wrap{ max-width:680px; margin:0 auto; padding:0 24px; }
 
 /* ---------- Top bar ---------- */
 .topbar{
   display:flex; justify-content:space-between; align-items:center;
-  padding:20px 24px; max-width:1040px; margin:0 auto;
+  padding:20px 24px; max-width:680px; margin:0 auto;
 }
 .brand{ display:flex; align-items:center; gap:10px; }
 .brand .mark{
@@ -60,30 +90,23 @@ a{ color:var(--copper); }
   padding:36px 0 56px;
   border-bottom:1px solid var(--line);
 }
-.hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:44px; align-items:center; }
-@media (max-width:920px){
-  .hero-grid{ grid-template-columns:1fr; text-align:center; }
-  .hero-video-card{ order:-2; margin:0 auto 28px; }
-  .hero-text{ order:-1; }
-  .hero-card{ order:0; text-align:left; }
-  .hero-video-card video{ max-width:215px; }
-  .eyebrow{ justify-content:center; }
-  .hero-ctas{ justify-content:center; }
-  .hero-ctas .btn{ flex:1 1 auto; text-align:center; }
-  .hero p.lede{ margin-left:auto; margin-right:auto; }
-}
+.hero-grid{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:0; }
 .eyebrow{
   font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--turq); display:flex; align-items:center; gap:8px; margin-bottom:14px;
+  color:var(--turq); display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px;
 }
 .eyebrow::before{ content:""; width:20px; height:2px; background:var(--copper); }
 h1.headline{ font-size:clamp(38px,6vw,60px); line-height:0.98; }
 h1.headline .accent{ color:var(--copper); }
-.hero p.lede{ font-size:17px; color:var(--ink-soft); max-width:48ch; margin-top:18px; }
-.hero-ctas{ display:flex; gap:12px; margin-top:26px; flex-wrap:wrap; }
-.flip-link{ margin-top:16px; font-size:13.5px; color:var(--ink-faint); }
-.flip-link a{ color:var(--turq); text-decoration:underline; text-underline-offset:3px; }
-.flip-link a:hover{ color:var(--copper); }
+.hero p.lede{ font-size:17px; color:var(--ink-soft); max-width:48ch; margin:18px auto 0; }
+.hero-ctas{ display:flex; gap:12px; margin-top:26px; flex-wrap:wrap; justify-content:center; }
+.hero-ctas .btn{ flex:1 1 auto; text-align:center; }
+.slim-link{
+  margin-top:18px; display:inline-flex; align-items:center; gap:6px;
+  font-family:'IBM Plex Mono'; font-size:11.5px; font-weight:600; letter-spacing:0.03em;
+  color:var(--ink-faint); text-decoration:none; border:1px solid var(--line); padding:7px 14px;
+}
+.slim-link:hover{ color:var(--turq); border-color:var(--turq); }
 .btn{
   font-family:'IBM Plex Mono'; font-weight:600; font-size:14px;
   padding:13px 22px; text-decoration:none; display:inline-block;
@@ -122,20 +145,23 @@ section:last-of-type{ border-bottom:none; }
   color:var(--turq); margin-bottom:8px;
 }
 h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
+
+/* ---------- Scroll reveal ---------- */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
 .section-intro{ color:var(--ink-soft); font-size:15px; max-width:56ch; margin-bottom:34px; }
 
 /* ---------- Features ---------- */
-.feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
-@media (max-width:760px){ .feature-grid{ grid-template-columns:1fr 1fr; } }
-@media (max-width:520px){ .feature-grid{ grid-template-columns:1fr; } }
+.feature-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+
 .feature{ background:var(--surface); padding:24px 22px; }
 .feature .num{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--copper); margin-bottom:12px; }
 .feature h4{ font-family:'Work Sans'; font-weight:700; font-size:15.5px; text-transform:none; letter-spacing:0; margin-bottom:6px; }
 .feature p{ font-size:13.6px; color:var(--ink-soft); margin:0; }
 
 /* ---------- Specs ---------- */
-.specs-panel{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-@media (max-width:640px){ .specs-panel{ grid-template-columns:1fr; } }
+.specs-panel{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
 .specs-panel .row{ background:var(--surface); padding:14px 20px; display:flex; justify-content:space-between; gap:16px; }
 .specs-panel .row .k{ color:var(--ink-soft); font-size:13.8px; }
 .specs-panel .row .v{ font-weight:600; font-size:14px; text-align:right; }
@@ -148,8 +174,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 }
 
 /* ---------- Local proof ---------- */
-.local-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-@media (max-width:640px){ .local-grid{ grid-template-columns:1fr; } }
+.local-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
 .local-card{ background:var(--surface); padding:20px 24px; display:flex; flex-direction:column; gap:6px; }
 .local-card .row{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; }
 .local-card .venue{ font-family:'Big Shoulders Display'; font-weight:700; font-size:21px; text-transform:uppercase; letter-spacing:0.01em; }
@@ -157,8 +182,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 .local-card .note{ font-size:12.5px; color:var(--ink-soft); }
 
 /* ---------- Pricing ---------- */
-.price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-@media (max-width:640px){ .price-grid{ grid-template-columns:1fr; } }
+.price-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
 .price-tile{ background:var(--surface); padding:26px 24px; }
 .price-tile .qty{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--turq); }
 .price-tile .amount{ font-family:'Big Shoulders Display'; font-weight:800; font-size:44px; color:var(--copper); margin-top:6px; line-height:1; }
@@ -186,7 +210,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
   border:none; padding:7px 13px; cursor:pointer;
 }
 .wire-head .copy-all:hover{ opacity:0.88; }
-.wire-body{ padding:18px 20px 20px; display:grid; grid-template-columns:1fr 1fr; gap:16px 26px; color:var(--bg); }
+.wire-body{ padding:18px 20px 20px; display:grid; grid-template-columns:1fr; gap:14px; color:var(--bg); }
 :root[data-theme="dark"] .wire-body, :root:not([data-theme="light"]) .wire-body{ color:var(--ink); }
 @media (max-width:520px){ .wire-body{ grid-template-columns:1fr; } }
 .wire-body .field{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; }
@@ -203,8 +227,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 :root[data-theme="dark"] .wire-note, :root:not([data-theme="light"]) .wire-note{ color:var(--ink); }
 
 /* ---------- Shipping & availability ---------- */
-.ship-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-@media (max-width:700px){ .ship-grid{ grid-template-columns:1fr; } }
+.ship-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
 .ship-card{ background:var(--surface); padding:24px 24px 22px; }
 .ship-card .badge{
   display:inline-block; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase;
@@ -227,8 +250,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 }
 .dash-titlebar .dot{ width:9px; height:9px; border-radius:50%; background:var(--line); }
 .dash-titlebar .path{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-faint); margin-left:6px; }
-.dash-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); }
-@media (max-width:700px){ .dash-grid{ grid-template-columns:1fr 1fr; } }
+.dash-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); }
 .dash-tile{ background:var(--surface); padding:20px 18px; }
 .dash-tile .l{ font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-faint); }
 .dash-tile .n{ font-family:'Work Sans'; font-weight:700; font-size:14.5px; margin-top:8px; }
@@ -247,8 +269,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
   color:var(--turq); background:var(--turq-soft); padding:6px 12px; margin-top:4px;
 }
 .proforma-card p.desc{ font-size:14px; color:var(--ink-soft); max-width:60ch; margin:10px 0 22px; }
-.proforma-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
-@media (max-width:700px){ .proforma-stats{ grid-template-columns:1fr 1fr; } }
+.proforma-stats{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
 .proforma-stats .pstat{ background:var(--surface-2); padding:16px; }
 .proforma-stats .pstat .l{ font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-faint); }
 .proforma-stats .pstat .n{ font-family:'IBM Plex Mono'; font-size:20px; font-weight:600; color:var(--copper); margin-top:4px; }
@@ -256,8 +277,7 @@ h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 .proforma-foot .fine{ font-size:12px; color:var(--ink-faint); max-width:46ch; }
 
 /* ---------- Support ---------- */
-.support-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-@media (max-width:700px){ .support-grid{ grid-template-columns:1fr; } }
+.support-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
 .support-card{
   background:var(--surface); border:1px solid var(--line); padding:26px; position:relative;
 }
@@ -321,7 +341,6 @@ footer{ padding:36px 0 48px; }
           <a class="btn primary" href="tel:5206336437" target="_blank" rel="noopener">Call (520) 633-6437</a>
           <a class="btn ghost" href="#specs">See specs</a>
         </div>
-        <p class="flip-link"><a href="https://pharaohm33.github.io/smart-vending-placement/" target="_blank" rel="noopener">Store Owner in Tucson AZ? Profit Share Placement Offer</a></p>
       </div>
       <div class="hero-video-card">
         <video autoplay muted loop playsinline poster="assets/poster.jpg">
@@ -591,7 +610,7 @@ footer{ padding:36px 0 48px; }
       <div class="footer-brand">
         <div class="name">Suede Buffalo Vending Co.</div>
         <p>Locally placed and serviced vending machines for bars, offices, and small retail across Southern Arizona.</p>
-        <p class="flip-link" style="margin-top:10px;"><a href="https://pharaohm33.github.io/smart-vending-placement/" target="_blank" rel="noopener">Own a store? Get a profit share placement instead &rarr;</a></p>
+        <a class="slim-link" style="margin-top:12px;" href="https://pharaohm33.github.io/smart-vending-placement/" target="_blank" rel="noopener">Own a store? Get a profit share placement &rarr;</a>
       </div>
       <div class="footer-contact">
         <div class="l">Sales &amp; Support</div>
@@ -611,6 +630,38 @@ footer{ padding:36px 0 48px; }
     try{ el.textContent = decodeURIComponent(escape(atob(el.getAttribute('data-b64')))); }catch(e){}
     el.removeAttribute('data-b64');
   });
+
+  // Scroll-reveal: section headers and every card/row/tile fade + rise
+  // into place as they enter the viewport, with a slight per-item stagger
+  // within each group for a cascading feel.
+  var revealTargets = document.querySelectorAll(
+    'section .section-tag, section h2.section-title, section .section-intro, ' +
+    '.feature, .offer, .price-tile, .local-card, .dash-tile, .pstat, ' +
+    '.support-card, .faq-item, .flip, .cta-panel, .wire-card, .ship-card, ' +
+    '.specs-panel .row'
+  );
+  var groupIndex = {};
+  revealTargets.forEach(function(el){
+    el.classList.add('reveal');
+    var parent = el.parentElement;
+    var key = parent ? (parent.className || 'root') : 'root';
+    groupIndex[key] = (groupIndex[key] || 0);
+    var i = groupIndex[key]++;
+    el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
+  });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealTargets.forEach(function(el){ io.observe(el); });
+  } else {
+    revealTargets.forEach(function(el){ el.classList.add('is-visible'); });
+  }
 
   function flash(btn){
     var original = btn.textContent;
