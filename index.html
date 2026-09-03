@@ -1,5 +1,6 @@
-<title>Suede Buffalo Vending</title>
+<title>Buy Smart Vending Machines</title>
 <script>if(location.hash){history.replaceState(null,'',location.pathname+location.search);}</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%2215%22 y=%228%22 width=%2270%22 height=%2288%22 rx=%2210%22 fill=%22%230F1720%22 stroke=%22%233FD8C9%22 stroke-width=%224%22/><rect x=%2226%22 y=%2220%22 width=%2248%22 height=%2234%22 rx=%223%22 fill=%22%233FD8C9%22/><rect x=%2226%22 y=%2262%22 width=%2220%22 height=%2214%22 rx=%222%22 fill=%22%233FD8C9%22 opacity=%220.55%22/><circle cx=%2263%22 cy=%2269%22 r=%227%22 fill=%22%233FD8C9%22/></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
@@ -55,6 +56,12 @@ a{ color:var(--copper); }
   font-family:'IBM Plex Mono'; font-size:14px; font-weight:600;
   border:1.5px solid var(--ink); padding:9px 16px; text-decoration:none; color:var(--ink);
 }
+.topbar-right{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
+.nav-link{
+  font-family:'IBM Plex Mono'; font-size:11px; font-weight:600; letter-spacing:0.02em;
+  color:var(--turq); text-decoration:none; white-space:nowrap;
+}
+.nav-link:hover{ text-decoration:underline; }
 .topbar .call:hover{ background:var(--ink); color:var(--bg); }
 
 /* ---------- Hero ---------- */
@@ -96,7 +103,7 @@ h1.headline .accent{ color:var(--copper); }
 
 .hero-card{
   background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
-  padding:26px;
+  padding:26px; margin-top:28px;
 }
 .hero-card .tag{
   font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
@@ -119,7 +126,7 @@ section:last-of-type{ border-bottom:none; }
 h2.section-title{ font-size:clamp(26px,4vw,36px); margin-bottom:10px; }
 
 /* ---------- Scroll reveal ---------- */
-.reveal{ opacity:0; transform:translateY(26px); transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .45s cubic-bezier(.2,.7,.2,1), transform .45s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible{ opacity:1; transform:translateY(0); }
 @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
 .section-intro{ color:var(--ink-soft); font-size:15px; max-width:56ch; margin-bottom:34px; }
@@ -299,7 +306,10 @@ footer{ padding:36px 0 48px; }
     <div class="mark"></div>
     <div class="name">Suede Buffalo<small>Vending Co.</small></div>
   </div>
-  <a class="call" href="tel:5206336437" target="_blank" rel="noopener">(520) 633-6437</a>
+  <div class="topbar-right">
+    <a class="nav-link" href="https://pharaohm33.github.io/smart-vending-placement/">Free Profit Share Placement</a>
+    <a class="call" href="tel:5206336437" target="_blank" rel="noopener">(520) 633-6437</a>
+  </div>
 </div>
 
 <div class="wrap">
@@ -619,7 +629,7 @@ footer{ padding:36px 0 48px; }
     var key = parent ? (parent.className || 'root') : 'root';
     groupIndex[key] = (groupIndex[key] || 0);
     var i = groupIndex[key]++;
-    el.style.transitionDelay = Math.min(i * 300, 900) + 'ms';
+    el.style.transitionDelay = Math.min(i * 90, 450) + 'ms';
   });
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
