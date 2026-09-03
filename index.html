@@ -3,47 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root{
-  --bg:#F2EDE3;
-  --surface:#FCFAF5;
-  --surface-2:#E8DFCF;
-  --ink:#231A12;
-  --ink-soft:#6E6152;
-  --ink-faint:#9B8E7C;
-  --line:#DED2BB;
-  --copper:#AD5D25;
-  --copper-ink:#FBF1E6;
-  --turq:#2C8580;
-  --turq-soft:#E2F0EE;
-  --shadow:0 1px 2px rgba(35,26,18,0.08), 0 18px 40px -22px rgba(35,26,18,0.35);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#1B140F;
-    --surface:#241C15;
-    --surface-2:#2E241A;
-    --ink:#F4ECDF;
-    --ink-soft:#C3B39E;
-    --ink-faint:#8A7A66;
-    --line:#3B2E22;
-    --copper:#DE8B45;
-    --copper-ink:#241405;
-    --turq:#57C1B8;
-    --turq-soft:#1D3532;
-    --shadow:0 1px 2px rgba(0,0,0,0.4), 0 18px 40px -22px rgba(0,0,0,0.7);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1B140F;
-  --surface:#241C15;
-  --surface-2:#2E241A;
-  --ink:#F4ECDF;
-  --ink-soft:#C3B39E;
+  --bg:#000000;
+  --surface:#0F1720;
+  --surface-2:#16212B;
+  --ink:#F4ECDE;
+  --ink-soft:#B9A996;
   --ink-faint:#8A7A66;
-  --line:#3B2E22;
-  --copper:#DE8B45;
-  --copper-ink:#241405;
-  --turq:#57C1B8;
-  --turq-soft:#1D3532;
+  --line:#22323E;
+  --copper:#3FD8C9;
+  --copper-ink:#08201D;
+  --turq:#3FD8C9;
+  --turq-soft:#173539;
   --shadow:0 1px 2px rgba(0,0,0,0.4), 0 18px 40px -22px rgba(0,0,0,0.7);
 }
 
@@ -120,7 +90,7 @@ h1.headline .accent{ color:var(--copper); }
   background:#000; border:1px solid var(--line); box-shadow:var(--shadow), 0 0 40px -12px rgba(63,216,201,0.35);
   padding:14px; margin-bottom:16px; display:flex; align-items:center; justify-content:center;
 }
-.hero-video-card video{ display:block; width:100%; max-width:190px; height:auto; margin:0 auto; }
+.hero-video-card video{ display:block; width:100%; max-width:190px; aspect-ratio:2/3; object-fit:cover; object-position:center; margin:0 auto; }
 
 .hero-card{
   background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow);
@@ -337,15 +307,15 @@ footer{ padding:36px 0 48px; }
         <div class="eyebrow">Now placing machines across Southern Arizona</div>
         <h1 class="headline">Snacks that<br>pay for<br><span class="accent">themselves.</span></h1>
         <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors &mdash; delivered, set up, and supported by a local team.</p>
-        <div class="hero-ctas">
-          <a class="btn primary" href="tel:5206336437" target="_blank" rel="noopener">Call (520) 633-6437</a>
-          <a class="btn ghost" href="#specs">See specs</a>
-        </div>
       </div>
       <div class="hero-video-card">
         <video autoplay muted loop playsinline poster="assets/poster.jpg">
           <source src="assets/machine-360.mp4" type="video/mp4">
         </video>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn primary" href="tel:5206336437" target="_blank" rel="noopener">Call (520) 633-6437</a>
+        <a class="btn ghost" href="#specs">See specs</a>
       </div>
       <div class="hero-card">
         <div class="tag">Compact Tabletop Unit</div>
