@@ -30,12 +30,12 @@ body{
   line-height:1.6;
 }
 @media (max-width:640px){
-  .topbar{ padding:12px 18px; }
-  .brand .mark{ width:26px; height:26px; }
+  .topbar{ flex-direction:column; align-items:flex-start; gap:12px; padding:16px 20px; }
   .brand .name{ font-size:16px; }
   .brand .name small{ font-size:9px; }
-  .topbar .call{ font-size:12px; padding:7px 12px; }
-  .nav-link{ font-size:10px; }
+  .topbar-right{ width:100%; flex-direction:column; align-items:stretch; }
+  .topbar .call{ font-size:13px; padding:9px 12px; text-align:center; }
+  .nav-link{ font-size:11px; text-align:center; }
   .hero{ padding:20px 0 40px; }
   h1.headline{ font-size:clamp(46px,13vw,60px); }
   .hero p.lede{ font-size:14.5px; }
@@ -61,10 +61,6 @@ a{ color:var(--copper); }
   padding:20px 24px; max-width:680px; margin:0 auto;
 }
 .brand{ display:flex; align-items:center; gap:10px; }
-.brand .mark{
-  width:34px; height:34px; background:var(--copper); flex:none;
-  clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
 .brand .name{ font-family:'Big Shoulders Display'; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:0.02em; }
 .brand .name small{ display:block; font-family:'Work Sans'; text-transform:none; font-weight:500; font-size:11px; letter-spacing:0.08em; color:var(--ink-soft); margin-top:-2px; }
 .topbar .call{
@@ -83,7 +79,6 @@ a{ color:var(--copper); }
 /* ---------- Hero ---------- */
 .hero{
   padding:36px 0 56px;
-  border-bottom:1px solid var(--line);
 }
 .hero-grid{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:0; }
 .eyebrow{
@@ -355,7 +350,6 @@ footer{ padding:36px 0 48px; }
 
 <div class="topbar">
   <div class="brand">
-    <div class="mark"></div>
     <div class="name">Suede Buffalo</div>
   </div>
   <div class="topbar-right">
@@ -365,19 +359,18 @@ footer{ padding:36px 0 48px; }
 </div>
 
 <div class="wrap">
-  <section class="hero" style="border-top:1px solid var(--line);">
+  <section class="hero">
     <div class="hero-grid">
-      <div class="hero-text">
-        <div class="eyebrow">Own your own smart vending machine</div>
-        <h1 class="headline" id="headline">Premium Vending<br>Pays For<br><span class="accent">Itself.</span></h1>
-        <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors. Delivered, set up, and supported by a local team.</p>
-      </div>
       <div class="hero-video-card">
-        <div class="glow"></div>
         <video class="mv" autoplay muted loop playsinline poster="assets/poster.jpg">
           <source src="assets/machine-360.mp4" type="video/mp4">
         </video>
         <div class="frame-fade"></div>
+      </div>
+      <div class="hero-text">
+        <div class="eyebrow">Own your own smart vending machine</div>
+        <h1 class="headline" id="headline">Premium Vending<br>Pays For<br><span class="accent">Itself.</span></h1>
+        <p class="lede">A compact, cashless vending machine built for bars, offices, and small retail floors. Delivered, set up, and supported by a local team.</p>
       </div>
       <div class="hero-ctas">
         <a class="btn primary" href="tel:5206336437" target="_blank" rel="noopener">Call (520) 633-6437</a>
