@@ -29,10 +29,11 @@ class EmailPopup {
           <button class="email-popup-close" id="emailPopupClose">&times;</button>
           
           <div class="email-popup-content" id="emailPopupContent">
-            <h2>Exclusive Offer</h2>
+            <div class="email-popup-bottom-badge">Limited Time Offer</div>
+            <h2>Don't Miss Out</h2>
             <div class="email-popup-discount">$500 OFF</div>
-            <p>Join our mailing list and get <strong>$500 off your next order</strong></p>
-            <p>Enter your email below to receive your exclusive discount code</p>
+            <p><strong>Get $500 off your next vending machine order</strong> when you join our mailing list. Our sales team will provide your exclusive discount code upon checkout.</p>
+            <p>Be the first to know about new products, placement opportunities, and special offers.</p>
             
             <form class="email-popup-form" id="emailPopupForm">
               <input type="email" class="email-popup-input" id="emailPopupInput" placeholder="Enter your email address" required autocomplete="email" />
