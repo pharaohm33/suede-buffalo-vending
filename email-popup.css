@@ -1,0 +1,253 @@
+/* Email Popup Modal Styles */
+.email-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeInOverlay 0.5s ease-out;
+  opacity: 1;
+}
+
+.email-popup-overlay.hidden {
+  animation: fadeOutOverlay 0.5s ease-out forwards;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutOverlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.email-popup-modal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #00d4ff;
+  border-radius: 12px;
+  padding: 48px 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+  position: relative;
+  animation: slideInPopup 0.5s ease-out;
+}
+
+@keyframes slideInPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.email-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #00d4ff;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.email-popup-close:hover {
+  color: #00f7ff;
+}
+
+.email-popup-content h2 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.email-popup-discount {
+  font-size: 48px;
+  font-weight: 900;
+  color: #00d4ff;
+  text-transform: uppercase;
+  margin: 16px 0;
+  line-height: 1;
+}
+
+.email-popup-content p {
+  font-size: 14px;
+  color: #a0a0a0;
+  margin: 16px 0;
+  line-height: 1.6;
+}
+
+.email-popup-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-popup-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #00d4ff;
+  border-radius: 6px;
+  background-color: rgba(0, 212, 255, 0.05);
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.email-popup-input::placeholder {
+  color: #606060;
+}
+
+.email-popup-input:focus {
+  outline: none;
+  background-color: rgba(0, 212, 255, 0.1);
+  border-color: #00f7ff;
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.2);
+}
+
+.email-popup-button {
+  padding: 14px 24px;
+  background-color: #00d4ff;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.email-popup-button:hover {
+  background-color: #00f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+}
+
+.email-popup-button:active {
+  transform: translateY(0);
+}
+
+.email-popup-button:disabled {
+  background-color: #606060;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.email-popup-error {
+  color: #ff4444;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+
+.email-popup-error.show {
+  display: block;
+}
+
+.email-popup-success {
+  text-align: center;
+  display: none;
+}
+
+.email-popup-success.show {
+  display: block;
+}
+
+.email-popup-success h3 {
+  color: #00d4ff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.email-popup-success p {
+  color: #a0a0a0;
+  margin-bottom: 8px;
+}
+
+.email-popup-code {
+  background-color: rgba(0, 212, 255, 0.1);
+  border: 2px solid #00d4ff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00d4ff;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.email-popup-copy-btn {
+  padding: 8px 16px;
+  background-color: #00d4ff;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.email-popup-copy-btn:hover {
+  background-color: #00f7ff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .email-popup-modal {
+    padding: 36px 24px;
+    margin: 16px;
+  }
+
+  .email-popup-content h2 {
+    font-size: 24px;
+  }
+
+  .email-popup-discount {
+    font-size: 36px;
+  }
+
+  .email-popup-input,
+  .email-popup-button {
+    font-size: 16px;
+  }
+}
