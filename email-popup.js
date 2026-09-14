@@ -69,23 +69,27 @@ class EmailPopup {
   }
 
   schedulePopup() {
+    // Header button always works, even after a submit
+    const headerBtn = document.getElementById('emailPopupHeaderBtn');
+    if (headerBtn) {
+      headerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.openPopup();
+      });
+    }
+
+    // Bottom form always works
+    const bottomForm = document.getElementById('emailPopupBottomForm');
+    if (bottomForm) {
+      bottomForm.addEventListener('submit', (e) => this.handleBottomSubmit(e));
+    }
+
+    // Auto popup only if they have not already subscribed this session
     if (sessionStorage.getItem('emailPopupSubmitted')) return;
 
     setTimeout(() => {
       this.openPopup();
     }, this.delayMs);
-
-    // Also setup header button
-    const headerBtn = document.getElementById('emailPopupHeaderBtn');
-    if (headerBtn) {
-      headerBtn.addEventListener('click', () => this.openPopup());
-    }
-
-    // Setup bottom form
-    const bottomForm = document.getElementById('emailPopupBottomForm');
-    if (bottomForm) {
-      bottomForm.addEventListener('submit', (e) => this.handleBottomSubmit(e));
-    }
   }
 
   openPopup() {
