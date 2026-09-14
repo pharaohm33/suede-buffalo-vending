@@ -348,6 +348,7 @@ ctrl+g  .hero-ctas .btn{ font-size:15px; padding:15px 22px; }
   <div class="topbar-right">
     <a class="nav-link" href="https://pharaohm33.github.io/smart-vending-placement/">Free Profit Share Placement</a>
     <a class="call" href="tel:5206336437" target="_blank" rel="noopener">(520) 633-6437</a>
+    <button id="emailPopupHeaderBtn">Get Discount</button>
   </div>
 </div>
 
@@ -777,4 +778,34 @@ ctrl+g  .hero-ctas .btn{ font-size:15px; padding:15px 22px; }
 })();
 </script>
 <!-- Email Popup Script -->
+
+<!-- Bottom Email Capture Section -->
+<div class="email-popup-bottom-section">
+  <div class="email-popup-bottom-container">
+    <div class="email-popup-bottom-content">
+      <div class="email-popup-bottom-badge">Limited Time Offer</div>
+      <h2>Don't Miss Out</h2>
+      <div class="email-popup-bottom-discount">$500 OFF</div>
+      <p><strong>Get $500 off your next vending machine order</strong> when you join our mailing list. Our sales team will provide your exclusive discount code upon checkout.</p>
+      <p>Be the first to know about new products, placement opportunities, and special offers.</p>
+    </div>
+    
+    <div>
+      <form class="email-popup-bottom-form" id="emailPopupBottomForm">
+        <input
+          type="email"
+          class="email-popup-bottom-input"
+          id="emailPopupBottomInput"
+          placeholder="Enter your email address"
+          required
+          autocomplete="email"
+        />
+        <div class="email-popup-bottom-error" id="emailPopupBottomError"></div>
+        <button type="submit" class="email-popup-bottom-button" id="emailPopupBottomSubmit">
+          Get My Discount Code
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 <script src="email-popup.js"></script>
