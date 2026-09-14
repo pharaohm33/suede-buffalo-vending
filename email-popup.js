@@ -81,10 +81,10 @@ class EmailPopup {
   }
 
   setupButtonTriggers() {
-    // Get Discount button in header
+    // Get Discount button in header - scroll to bottom form
     const headerBtn = document.getElementById('emailPopupHeaderBtn');
     if (headerBtn) {
-      headerBtn.addEventListener('click', () => this.openPopup());
+      headerBtn.addEventListener('click', () => this.scrollToBottom());
     }
 
     // Bottom form submission
@@ -97,6 +97,20 @@ class EmailPopup {
     if (sessionStorage.getItem('emailPopupSubmitted')) {
       this.disableBottomForm();
       return;
+    }
+  }
+
+  scrollToBottom() {
+    const bottomSection = document.querySelector('.email-popup-bottom-section');
+    if (bottomSection) {
+      bottomSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus on email input for better UX
+      setTimeout(() => {
+        const emailInput = document.getElementById('emailPopupBottomInput');
+        if (emailInput) {
+          emailInput.focus();
+        }
+      }, 500);
     }
   }
 
